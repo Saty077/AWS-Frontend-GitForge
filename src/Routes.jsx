@@ -1,4 +1,4 @@
-import useNavigate from "react-router-dom";
+import { useNavigate, useRoutes } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 import { useEffect } from "react";
 
@@ -8,7 +8,7 @@ import Dashboard from "./components/dashboard/Dashboard";
 import Profile from "./components/user/Profile";
 
 const ProjectRoutes = () => {
-  const { currUser, setCurrentUser } = useAuth();
+  const { currUser, setCurrentUser } = useAuth(); //
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,26 +29,26 @@ const ProjectRoutes = () => {
     }
   }, [currUser, navigate, setCurrentUser]);
 
-  const elements = [
+  let element = useRoutes([
     {
-      element: <Login />,
-      path: "/auth",
-    },
-    {
-      element: <Signup />,
-      path: "/signup",
-    },
-    {
-      element: <Dashboard />,
       path: "/",
+      element: <Dashboard />,
     },
     {
-      element: <Profile />,
-      path: "/profile",
+      path: "/auth",
+      element: <Login />,
     },
-  ];
+    {
+      path: "/signup",
+      element: <Signup />,
+    },
+    {
+      path: "/profile",
+      element: <Profile />,
+    },
+  ]);
 
-  return elements;
+  return element;
 };
 
 export default ProjectRoutes;
