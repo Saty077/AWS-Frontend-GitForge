@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button } from "@primer/react";
 import axios from "axios";
 import "./auth.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/whitefox.png";
 import { useAuth } from "../../AuthContext";
 
@@ -13,6 +13,7 @@ function Signup() {
   const [loading, setLoading] = useState(false);
 
   const { currentUser, setCurrentUser } = useAuth();
+  const navigate = useNavigate();
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -24,14 +25,18 @@ function Signup() {
         password,
       });
 
-      localStorage.setItem("token", res.data.userId);
-      localStorage.setItem("userId", res.data.token);
+      localStorage.setItem("userId", res.data.userId);
+      localStorage.setItem("token", res.data.token);
 
       setCurrentUser(res.data.userId);
 
       setLoading(false);
+
+      navigate("/");
     } catch (error) {
       console.log(error.message);
+      alert("Signup failed!");
+      setLoading(false);
     }
   };
 
@@ -96,7 +101,7 @@ function Signup() {
 
         <div className="pass-box">
           <p>
-            Already have an account ? <Link>Login</Link>{" "}
+            Already have an account ? <Link to={"/auth"}>Login</Link>{" "}
           </p>
         </div>
       </div>
