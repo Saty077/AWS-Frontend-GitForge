@@ -14,7 +14,7 @@ function Login() {
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
     setCurrentUser(false);
-  });
+  }, []);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,7 +24,7 @@ function Login() {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await axios.post("http://localhost:3000/Login", {
+      const res = await axios.post("http://localhost:3000/login", {
         email,
         password,
       });
