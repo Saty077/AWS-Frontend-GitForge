@@ -64,7 +64,7 @@ const Dashboard = () => {
           <h3>All Repositories</h3>
           {allPublicRepos.map((repo) => {
             return (
-              <div key={repo.id}>
+              <div key={repo._id}>
                 <li>{repo.name}</li>
                 <li>{repo.description}</li>
               </div>
@@ -81,7 +81,7 @@ const Dashboard = () => {
           />
           {searchResults.map((repo) => {
             return (
-              <div key={repo.id}>
+              <div key={repo._id}>
                 <li>{repo.name}</li>
                 <li>{repo.description}</li>
               </div>
