@@ -70,7 +70,13 @@ const Dashboard = () => {
       </aside>
       <main>
         <h2>Your Repositories</h2>
-        {userRepos.map((repo) => {
+        <input
+          type="text"
+          placeholder="Search"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+        {searchResults.map((repo) => {
           return (
             <div key={repo.id}>
               <li>{repo.name}</li>
