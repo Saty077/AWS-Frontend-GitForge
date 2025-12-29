@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./dashboard.css";
 
 const Dashboard = () => {
   const [allPublicRepos, setAllPublicRepos] = useState([]);
@@ -31,17 +32,64 @@ const Dashboard = () => {
         setAllPublicRepos(data);
         console.log(data);
       };
-      fetchAllPublicRepos(allPublicRepos);
+      fetchAllPublicRepos();
     } catch (error) {
       console.log("Somthing went wrong while fetching all: ", error.message);
       alert("Error fetching data!");
     }
   }, []);
 
+  useEffect(() => {
+    try {
+      if (searchQuery == "") {
+        setSearchResults(userRepos);
+      } else {
+        const filterRepos = userRepos.filter((repo) =>
+          repo.name.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+        setSearchResults(filterRepos);
+      }
+    } catch (error) {
+      console.error("something went wrong during search!");
+      alert("Error Searching Repos!");
+    }
+  }, [searchQuery, userRepos]);
+
   return (
-    <div>
-      <h1>Dashboard</h1>
-    </div>
+    <section className="dashboardContainer">
+      <aside>
+        <h3>All Repositories</h3>
+        {allPublicRepos.map((repo) => {
+          return (
+            <div key={repo.id}>
+              <li>{repo.name}</li>
+              <li>{repo.description}</li>
+            </div>
+          );
+        })}
+      </aside>
+      <main>
+        <h2>Your Repositories</h2>
+        {userRepos.map((repo) => {
+          return (
+            <div key={repo.id}>
+              <li>{repo.name}</li>
+              <li>{repo.description}</li>
+            </div>
+          );
+        })}
+      </main>
+      <aside>
+        <h3>Satyam's Other Projects</h3>
+        <ul>
+          <li>wonderLust: Booking Website</li>
+          <li>Meetrix: VideoConfrencing Website</li>
+          <li>TradeFlow: Stock Monitoring Website</li>
+          <li>Issac: Chat Bot</li>
+          <li>ProCircle: Pro Social Media</li>
+        </ul>
+      </aside>
+    </section>
   );
 };
 
