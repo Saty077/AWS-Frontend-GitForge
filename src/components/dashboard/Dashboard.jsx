@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./dashboard.css";
+import Navbar from "../navbar/navbar";
 
 const Dashboard = () => {
   const [allPublicRepos, setAllPublicRepos] = useState([]);
@@ -56,46 +57,49 @@ const Dashboard = () => {
   }, [searchQuery, userRepos]);
 
   return (
-    <section className="dashboardContainer">
-      <aside>
-        <h3>All Repositories</h3>
-        {allPublicRepos.map((repo) => {
-          return (
-            <div key={repo.id}>
-              <li>{repo.name}</li>
-              <li>{repo.description}</li>
-            </div>
-          );
-        })}
-      </aside>
-      <main>
-        <h2>Your Repositories</h2>
-        <input
-          type="text"
-          placeholder="Search"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
-        {searchResults.map((repo) => {
-          return (
-            <div key={repo.id}>
-              <li>{repo.name}</li>
-              <li>{repo.description}</li>
-            </div>
-          );
-        })}
-      </main>
-      <aside>
-        <h3>Satyam's Other Projects</h3>
-        <ul>
-          <li>wonderLust: Booking Website</li>
-          <li>Meetrix: VideoConfrencing Website</li>
-          <li>TradeFlow: Stock Monitoring Website</li>
-          <li>Issac: Chat Bot</li>
-          <li>ProCircle: Pro Social Media</li>
-        </ul>
-      </aside>
-    </section>
+    <>
+      <Navbar />
+      <section className="dashboardContainer">
+        <aside>
+          <h3>All Repositories</h3>
+          {allPublicRepos.map((repo) => {
+            return (
+              <div key={repo.id}>
+                <li>{repo.name}</li>
+                <li>{repo.description}</li>
+              </div>
+            );
+          })}
+        </aside>
+        <main>
+          <h2>Your Repositories</h2>
+          <input
+            type="text"
+            placeholder="Search"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          {searchResults.map((repo) => {
+            return (
+              <div key={repo.id}>
+                <li>{repo.name}</li>
+                <li>{repo.description}</li>
+              </div>
+            );
+          })}
+        </main>
+        <aside>
+          <h3>Satyam's Other Projects</h3>
+          <ul>
+            <li>wonderLust: Booking Website</li>
+            <li>Meetrix: VideoConfrencing Website</li>
+            <li>TradeFlow: Stock Monitoring Website</li>
+            <li>Issac: Chat Bot</li>
+            <li>ProCircle: Pro Social Media</li>
+          </ul>
+        </aside>
+      </section>
+    </>
   );
 };
 

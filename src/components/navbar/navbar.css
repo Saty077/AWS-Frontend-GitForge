@@ -1,0 +1,40 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: 2px solid white;
+  align-items: center;
+}
+
+.login-logo-container {
+  padding: 30px 0px 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-login {
+  width: 60px;
+  border-radius: 10%;
+}
+
+nav h3 {
+  margin-left: 15px;
+  color: white;
+}
+
+nav div {
+  display: flex;
+}
+
+nav p {
+  margin-left: 50px;
+  font-weight: bold;
+  color: white;
+}
+
+nav p:hover,
+nav h3:hover {
+  color: rgba(255, 255, 255, 0.527);
+}
