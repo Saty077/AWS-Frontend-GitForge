@@ -6,6 +6,7 @@ import defaultImg from "../../assets/default.avif";
 import "./profile.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import HeatMapProfile from "./Heatmap";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -76,6 +77,9 @@ const Profile = () => {
             <p>20 Follower</p>
             <p>5 Following</p>
           </div>
+        </div>
+        <div className="heatmap">
+          <HeatMapProfile />
         </div>
       </div>
     </div>
