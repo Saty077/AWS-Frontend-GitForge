@@ -7,12 +7,14 @@ import "./profile.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import HeatMapProfile from "./Heatmap";
+import { useAuth } from "../../AuthContext";
 
 const Profile = () => {
   const navigate = useNavigate();
   const [userDetails, setUserDetails] = useState({
     username: "Username",
   });
+  const { setCurrentUser } = useAuth();
   const userId = localStorage.getItem("userId");
 
   useEffect(() => {
@@ -64,6 +66,19 @@ const Profile = () => {
           Starred Repositories
         </UnderlineNav.Item>
       </UnderlineNav>
+
+      <div className="logout">
+        <button
+          onClick={() => {
+            localStorage.removeItem("userId"),
+              localStorage.removeItem("token"),
+              setCurrentUser(false);
+            navigate("/auth");
+          }}
+        >
+          Logout
+        </button>
+      </div>
 
       <div className="profilePageWrapper">
         <div className="user-profile-section">
