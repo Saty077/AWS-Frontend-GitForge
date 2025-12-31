@@ -15,7 +15,7 @@ function Navbar() {
         </Link>
       </div>
 
-      <div>
+      <div className="secondOption">
         <Link to="/create">
           <p>+ New Repository</p>
         </Link>

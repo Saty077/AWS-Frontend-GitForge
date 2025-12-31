@@ -2,12 +2,21 @@
   display: flex;
   color: whitesmoke;
   width: 100%;
+  margin-top: 130px;
+  position: fixed;
+}
+
+.prc-components-UnderlineWrapper-eT-Yj {
+  position: absolute;
+  z-index: 999;
+  margin-top: 90px;
 }
 
 .profileContainer {
   width: 100vw;
   height: 100vh;
   background-color: black;
+  padding: 1.2rem;
 }
 
 .user-profile-section {

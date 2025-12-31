@@ -1,5 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #000;
+  color: #e6e6e6;
+  position: fixed;
+  width: 100%;
+}
+
 .dashboardContainer {
-  display: flex;
-  justify-content: space-between;
-  width: 1080px;
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  min-height: calc(100vh - 60px);
+  background-color: #000;
+  padding: 3.5rem;
+  margin-bottom: 3rem;
+}
+
+.dashboardContainer aside {
+  background-color: #111;
+  border-radius: 10px;
+  padding: 15px;
+  border: 1px solid #222;
+}
+
+.dashboardContainer aside h3 {
+  margin-bottom: 15px;
+  color: #58a6ff;
+  font-size: 18px;
+}
+
+.dashboardContainer main {
+  background-color: #0d1117;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid #222;
+  height: 100vh;
+}
+
+.dashboardContainer main h2 {
+  margin-bottom: 15px;
+  color: #f0f6fc;
+}
+
+.dashboardContainer div {
+  background-color: #161b22;
+  margin-bottom: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #30363d;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.dashboardContainer div:hover {
+  background-color: #1f2933;
+  transform: translateY(-2px);
+}
+
+.dashboardContainer li:first-child {
+  list-style: none;
+  font-weight: 600;
+  color: #58a6ff;
+  margin-bottom: 4px;
+}
+
+.dashboardContainer li:last-child {
+  list-style: none;
+  font-size: 14px;
+  color: #c9d1d9;
+}
+
+.dashboardContainer input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #30363d;
+  background-color: #0d1117;
+  color: #f0f6fc;
+  outline: none;
+}
+
+.dashboardContainer input::placeholder {
+  color: #8b949e;
+}
+
+.dashboardContainer input:focus {
+  border-color: #58a6ff;
+}
+
+.dashboardContainer aside ul {
+  list-style: none;
+}
+
+.dashboardContainer aside ul li {
+  padding: 8px 0;
+  border-bottom: 1px solid #222;
+
+  color: #c9d1d9;
+}
+
+.dashboardContainer aside ul li:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 900px) {
+  .dashboardContainer {
+    grid-template-columns: 1fr;
+  }
 }
