@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/whitefox.png";
+import logo from "../../assets/whiteFox.png";
 import { Link } from "react-router-dom";
 import "./navbar.css";
 

@@ -3,7 +3,7 @@ import { Button } from "@primer/react";
 import axios from "axios";
 import "./auth.css";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../../assets/whitefox.png";
+import logo from "../../assets/whiteFox.png";
 import { useAuth } from "../../AuthContext";
 
 function Signup() {
@@ -12,7 +12,7 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const { currentUser, setCurrentUser } = useAuth();
+  const { setCurrentUser } = useAuth();
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
