@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./dashboard.css";
-import Navbar from "../navbar/navbar";
+import Navbar from "../navbar/Navbar";
 
 const Dashboard = () => {
   const [allPublicRepos, setAllPublicRepos] = useState([]);

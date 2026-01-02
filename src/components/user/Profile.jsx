@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../navbar/navbar";
+import Navbar from "../navbar/Navbar";
 import { UnderlineNav } from "@primer/react";
 import { BookIcon, RepoIcon } from "@primer/octicons-react";
 import defaultImg from "../../assets/default.avif";
